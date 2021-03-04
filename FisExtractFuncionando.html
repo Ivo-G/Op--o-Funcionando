@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=\, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+    <title>Fetch JSON from API and map lat long</title> 
+</head>
+<body>
+  
+  <script>
+    // Estudar isso aqui.https://forum.sentinel-hub.com/t/fis-get-data-method-vs-post-request-different-results/1210/4
+    
+    //https://services.sentinel-hub.com/ogc/fis/035c119b-e137-42ba-89cf-3848642e2efa?LAYER=NDVI&CRS=CRS:84&BBOX=-56.368635,-30.447046,-56.353515,-30.436834&WIDTH=512&HEIGHT=401&TIME=2020-01-27/2021-02-27&STYLE=INDEX
+    //https://services.sentinel-hub.com/ogc/fis/035c119b-e137-42ba-89cf-3848642e2efa?LAYER=NDVI&CRS=CRS:84&BBOX=-56.368635,-30.447046,-56.353515,-30.436834&WIDTH=512&HEIGHT=401&TIME=2021-01-27/2021-02-27&STYLE=INDEX
+    const api_url = 'https://services.sentinel-hub.com/ogc/fis/035c119b-e137-42ba-89cf-3848642e2efa?LAYER=NDVI&CRS=CRS:84&BBOX=-56.368635,-30.447046,-56.353515,-30.436834&WIDTH=512&HEIGHT=401&TIME=2020-01-27/2021-02-27&STYLE=INDEX'
+    async function getData(){
+      const response = await fetch(api_url);
+      const data = await response.json();
+      console.log(data); // console do navegador
+      console.log(data.C0);
+      // const {latitude, longitude} = data;
+      //document getElementbyId('lat')= latitude;
+      //document getElementbyId('long')= longitude;
+      //console.log(data.date)
+      //console.log(data.basicStats.mean)
+    }
+    getData();
+
+  </script>         
+  </body>
+</html>
